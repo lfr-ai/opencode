@@ -1,67 +1,59 @@
 ---
 title: Temaer
-description: Velg et innebygd tema eller definer ditt eget.
+description: Vælg et indbygget tema eller definér dit eget.
 ---
 
-Med OpenCode kan du velge fra ett av flere innebygde temaer, bruge et tema som tilpasser seg terminaltemaet ditt, eller definere ditt eget tilpassede tema.
+Med OpenCode kan du vælge mellem flere indbyggede temaer, bruge et tema der tilpasser sig dit terminaltema, eller definere et brugerdefineret tema.
 
-Som standard bruger OpenCode vårt eget `opencode`-tema.
+Som standard bruger OpenCode temaet `opencode`.
 
 ---
 
 ## Terminalkrav
 
-For at temaer skal vises riktig med fullfarvepalett, må terminalen din støtte **truecolor** (24-biters farver). De fleste moderne terminaler støtter dette som standard, men du må kanskje aktivere det:
+For at temaer vises korrekt med fuld farvepalet, skal din terminal understøtte **truecolor** (24-bit farver). De fleste moderne terminaler understøtter dette som standard, men du kan skulle aktivere det:
 
-- **Tjek støtte**: Kjør `echo $COLORTERM` - den skal gi ut `truecolor` eller `24bit`
-- **Aktiver truecolor**: Sett miljøvariabelen `COLORTERM=truecolor` i shellprofilen din
-- **Terminalkompatibilitet**: Sørg for at terminalemulatoren din støtter 24-bits farver (de fleste moderne terminaler som iTerm2, Alacritty, Kitty, Windows Terminal og nyere versioner av GNOME Terminal gør det)
+- **Tjek understøttelse**: Kør `echo $COLORTERM` — den bør returnere `truecolor` eller `24bit`
+- **Aktivér truecolor**: Sæt miljøvariablen `COLORTERM=truecolor` i din shell-profil
+- **Terminalkompatibilitet**: Sørg for at din terminalemulator understøtter 24-bit farver (de fleste moderne terminaler som iTerm2, Alacritty, Kitty, Windows Terminal og nyere versioner af GNOME Terminal gør)
 
-Uden truecolor-støtte kan temaer vises med redusert farvenøjagtighed eller falde tilbage til nærmeste 256-farvers tilnærming.
+Uden truecolor kan temaer vises med reduceret farvenøjagtighed eller falde tilbage til nærmeste 256-farvetilnærmelse.
 
 ---
 
 ## Indbyggede temaer
 
-OpenCode kommer med flere innebygde temaer.
+OpenCode leveres med flere indbyggede temaer:
 
-| Navn                   | Beskrivelse                                                               |
-| ---------------------- | ------------------------------------------------------------------------- |
-| `system`               | Tilpasser seg terminalens bakgrunnsfarve                                  |
-| `tokyonight`           | Basert på [Tokyonight](https://github.com/folke/tokyonight.nvim)-temaet   |
-| `everforest`           | Basert på [Everforest](https://github.com/sainnhe/everforest)-temaet      |
-| `ayu`                  | Basert på [Ayu](https://github.com/ayu-theme) mørke tema                  |
-| `catppuccin`           | Basert på [Catppuccin](https://github.com/catppuccin)-temaet              |
-| `catppuccin-macchiato` | Basert på [Catppuccin](https://github.com/catppuccin)-temaet              |
-| `gruvbox`              | Basert på [Gruvbox](https://github.com/morhetz/gruvbox)-temaet            |
-| `kanagawa`             | Basert på [Kanagawa](https://github.com/rebelot/kanagawa.nvim)-temaet     |
-| `nord`                 | Basert på [Nord](https://github.com/nordtheme/nord)-temaet                |
-| `matrix`               | Hacker-stil grønt på svart tema                                           |
-| `one-dark`             | Basert på [Atom One](https://github.com/Th3Whit3Wolf/one-nvim) Mørkt tema |
-
-Og mer, vi tilføjer stadig til nye temaer.
+| Navn                   | Beskrivelse                                                              |
+| ---------------------- | ------------------------------------------------------------------------ |
+| `system`               | Tilpasser sig terminalens baggrundsfarve                                 |
+| `tokyonight`           | Baseret på [Tokyonight](https://github.com/folke/tokyonight.nvim)-temaet |
+| `everforest`           | Baseret på [Everforest](https://github.com/sainnhe/everforest)-temaet    |
+| `ayu`                  | Baseret på [Ayu](https://github.com/ayu-theme) mørkt tema                |
+| `catppuccin`           | Baseret på [Catppuccin](https://github.com/catppuccin)-temaet            |
+| `catppuccin-macchiato` | Baseret på [Catppuccin](https://github.com/catppuccin)-temaet            |
+| `gruvbox`              | Baseret på [Gruvbox](https://github.com/morhetz/gruvbox)-temaet          |
+| `kanagawa`             | Baseret på [Kanagawa](https://github.com/rebelot/kanagawa.nvim)-temaet   |
+| `nord`                 | Baseret på [Nord](https://github.com/nordtheme/nord)-temaet              |
+| `matrix`               | Hacker-stil med grøn på sort                                             |
+| `one-dark`             | Baseret på [Atom One](https://github.com/Th3Whit3Wolf/one-nvim) mørkt tema |
 
 ---
 
 ## Systemtema
 
-`system`-temaet er designet for at automatisk tilpasse seg terminalens farvevalg. I motsetning til tradisjonelle temaer som bruger faste farver, er _system_-temaet:
+`system`-temaet er designet til automatisk at tilpasse sig terminalens farver.
 
-- **Genererer gråskala**: Opreter en brugerdefineret gråskala basert på terminalens bakgrunnsfarve, og sikrer optimal kontrast.
-- **Bruger ANSI farver**: Bruger standard ANSI farver (0-15) for syntaksutheving og UI elementer, som respekterer terminalens farvepalett.
-- **Bevarer terminalens standardinnstillinger**: Bruger `none` for tekst- og bakgrunnsfarver for at opretholde terminalens opprinnelige utseende.
-
-Systemtemaet er for brugere som:
-
-- Vil at OpenCode skal matche terminalens utseende
-- Brug tilpassede terminalfarveskjemaer
-- Foretrekker et konsistent utseende på tvers av alle terminalapplikasjoner
+- Det genererer en passende gråskala ud fra terminalens baggrund
+- Det bruger ANSI-farver (0-15) til syntaks og UI
+- Det kan bevare terminalens standardfarver med `none`
 
 ---
 
 ## Brug et tema
 
-Du kan velge et tema ved at hente frem temavalg med kommandoen `/theme`. Eller du kan angive det i `tui.json`.
+Vælg et tema via kommandoen `/theme`, eller angiv det i `tui.json`:
 
 ```json title="tui.json" {3}
 {
@@ -74,26 +66,18 @@ Du kan velge et tema ved at hente frem temavalg med kommandoen `/theme`. Eller d
 
 ## Brugerdefinerede temaer
 
-OpenCode støtter et fleksibelt JSON-basert temasystem som lar brugere enkelt lage og tilpasse temaer.
+OpenCode understøtter JSON-baserede temaer.
 
----
+### Hvor temaer indlæses fra
 
-### Hierarki
+Temaer indlæses i denne rækkefølge, hvor senere placeringer tilsidesætter tidligere:
 
-Temaer lastes inn fra flere kataloger i følgende rekkefølge der senere kataloger overstyrer tidligere:
+1. Indbyggede temaer
+2. `~/.config/opencode/themes/*.json`
+3. `<project-root>/.opencode/themes/*.json`
+4. `./.opencode/themes/*.json`
 
-1. **Innebygde temaer** - Disse er innebygd i binæren
-2. **Brugerkonfigurasjonskatalog** - Definert i `~/.config/opencode/themes/*.json` eller `$XDG_CONFIG_HOME/opencode/themes/*.json`
-3. **Prosjektrotkatalog** - Definert i `<project-root>/.opencode/themes/*.json`
-4. **Nuværende arbejdskatalog** - Definert i `./.opencode/themes/*.json`
-
-Hvis flere kataloger inneholder et tema med samme navn, vil temaet fra katalogen med høyere prioritet bli brugt.
-
----
-
-### Oprettelse af et tema
-
-For at lage et brugerdefineret tema, lag en JSON-fil i en av temakatalogene.
+### Opret et tema
 
 For brugeromfattende temaer:
 
@@ -102,267 +86,43 @@ mkdir -p ~/.config/opencode/themes
 vim ~/.config/opencode/themes/my-theme.json
 ```
 
-Og for prosjektspesifikke temaer.
+For projektspecifikke temaer:
 
 ```bash no-frame
 mkdir -p .opencode/themes
 vim .opencode/themes/my-theme.json
 ```
 
----
-
 ### JSON-format
 
-Temaer bruger et fleksibelt JSON-format med støtte for:
+Temaer understøtter:
 
-- **Sekskantfarver**: `"#ffffff"`
-- **ANSI farver**: `3` (0-255)
-- **Farvereferanser**: `"primary"` eller egendefinerte definisjoner
-- **Mørke/lyse varianter**: `{"dark": "#000", "light": "#fff"}`
-- **Ingen farve**: `"none"` - Bruger terminalens standardfarve eller transparent
-
----
-
-### Farvedefinitioner
-
-`defs`-delen er valgfri, og den lar deg definere gjenbrugbare farver som kan refereres til i temaet.
-
----
-
-### Terminalstandarder
-
-Spesialverdien `"none"` kan bruges for hvilken som helst farve for at arve terminalens standardfarve. Dette er spesielt nyttig for at lage temaer som passer sømløst med terminalens farveskjema:
-
-- `"text": "none"` - Bruger terminalens standard forgrunnsfarve
-- `"background": "none"` - Bruger terminalens standard bakgrunnsfarve
-
----
+- Hex-farver som `"#ffffff"`
+- ANSI-farver som `3`
+- Farvereferencer som `"primary"`
+- Mørk/lys-varianter som `{"dark":"#000","light":"#fff"}`
+- `"none"` for terminalens standardfarve
 
 ### Eksempel
-
-Her er et eksempel på et brugerdefineret tema:
 
 ```json title="my-theme.json"
 {
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
-    "nord0": "#2E3440",
-    "nord1": "#3B4252",
-    "nord2": "#434C5E",
-    "nord3": "#4C566A",
-    "nord4": "#D8DEE9",
-    "nord5": "#E5E9F0",
-    "nord6": "#ECEFF4",
-    "nord7": "#8FBCBB",
-    "nord8": "#88C0D0",
-    "nord9": "#81A1C1",
-    "nord10": "#5E81AC",
-    "nord11": "#BF616A",
-    "nord12": "#D08770",
-    "nord13": "#EBCB8B",
-    "nord14": "#A3BE8C",
-    "nord15": "#B48EAD"
+    "primary": "#88C0D0"
   },
   "theme": {
     "primary": {
-      "dark": "nord8",
-      "light": "nord10"
-    },
-    "secondary": {
-      "dark": "nord9",
-      "light": "nord9"
-    },
-    "accent": {
-      "dark": "nord7",
-      "light": "nord7"
-    },
-    "error": {
-      "dark": "nord11",
-      "light": "nord11"
-    },
-    "warning": {
-      "dark": "nord12",
-      "light": "nord12"
-    },
-    "success": {
-      "dark": "nord14",
-      "light": "nord14"
-    },
-    "info": {
-      "dark": "nord8",
-      "light": "nord10"
+      "dark": "primary",
+      "light": "#5E81AC"
     },
     "text": {
-      "dark": "nord4",
-      "light": "nord0"
-    },
-    "textMuted": {
-      "dark": "nord3",
-      "light": "nord1"
+      "dark": "#D8DEE9",
+      "light": "#2E3440"
     },
     "background": {
-      "dark": "nord0",
-      "light": "nord6"
-    },
-    "backgroundPanel": {
-      "dark": "nord1",
-      "light": "nord5"
-    },
-    "backgroundElement": {
-      "dark": "nord1",
-      "light": "nord4"
-    },
-    "border": {
-      "dark": "nord2",
-      "light": "nord3"
-    },
-    "borderActive": {
-      "dark": "nord3",
-      "light": "nord2"
-    },
-    "borderSubtle": {
-      "dark": "nord2",
-      "light": "nord3"
-    },
-    "diffAdded": {
-      "dark": "nord14",
-      "light": "nord14"
-    },
-    "diffRemoved": {
-      "dark": "nord11",
-      "light": "nord11"
-    },
-    "diffContext": {
-      "dark": "nord3",
-      "light": "nord3"
-    },
-    "diffHunkHeader": {
-      "dark": "nord3",
-      "light": "nord3"
-    },
-    "diffHighlightAdded": {
-      "dark": "nord14",
-      "light": "nord14"
-    },
-    "diffHighlightRemoved": {
-      "dark": "nord11",
-      "light": "nord11"
-    },
-    "diffAddedBg": {
-      "dark": "#3B4252",
-      "light": "#E5E9F0"
-    },
-    "diffRemovedBg": {
-      "dark": "#3B4252",
-      "light": "#E5E9F0"
-    },
-    "diffContextBg": {
-      "dark": "nord1",
-      "light": "nord5"
-    },
-    "diffLineNumber": {
-      "dark": "nord2",
-      "light": "nord4"
-    },
-    "diffAddedLineNumberBg": {
-      "dark": "#3B4252",
-      "light": "#E5E9F0"
-    },
-    "diffRemovedLineNumberBg": {
-      "dark": "#3B4252",
-      "light": "#E5E9F0"
-    },
-    "markdownText": {
-      "dark": "nord4",
-      "light": "nord0"
-    },
-    "markdownHeading": {
-      "dark": "nord8",
-      "light": "nord10"
-    },
-    "markdownLink": {
-      "dark": "nord9",
-      "light": "nord9"
-    },
-    "markdownLinkText": {
-      "dark": "nord7",
-      "light": "nord7"
-    },
-    "markdownCode": {
-      "dark": "nord14",
-      "light": "nord14"
-    },
-    "markdownBlockQuote": {
-      "dark": "nord3",
-      "light": "nord3"
-    },
-    "markdownEmph": {
-      "dark": "nord12",
-      "light": "nord12"
-    },
-    "markdownStrong": {
-      "dark": "nord13",
-      "light": "nord13"
-    },
-    "markdownHorizontalRule": {
-      "dark": "nord3",
-      "light": "nord3"
-    },
-    "markdownListItem": {
-      "dark": "nord8",
-      "light": "nord10"
-    },
-    "markdownListEnumeration": {
-      "dark": "nord7",
-      "light": "nord7"
-    },
-    "markdownImage": {
-      "dark": "nord9",
-      "light": "nord9"
-    },
-    "markdownImageText": {
-      "dark": "nord7",
-      "light": "nord7"
-    },
-    "markdownCodeBlock": {
-      "dark": "nord4",
-      "light": "nord0"
-    },
-    "syntaxComment": {
-      "dark": "nord3",
-      "light": "nord3"
-    },
-    "syntaxKeyword": {
-      "dark": "nord9",
-      "light": "nord9"
-    },
-    "syntaxFunction": {
-      "dark": "nord8",
-      "light": "nord8"
-    },
-    "syntaxVariable": {
-      "dark": "nord7",
-      "light": "nord7"
-    },
-    "syntaxString": {
-      "dark": "nord14",
-      "light": "nord14"
-    },
-    "syntaxNumber": {
-      "dark": "nord15",
-      "light": "nord15"
-    },
-    "syntaxType": {
-      "dark": "nord7",
-      "light": "nord7"
-    },
-    "syntaxOperator": {
-      "dark": "nord9",
-      "light": "nord9"
-    },
-    "syntaxPunctuation": {
-      "dark": "nord4",
-      "light": "nord0"
+      "dark": "#2E3440",
+      "light": "#ECEFF4"
     }
   }
 }

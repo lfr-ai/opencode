@@ -34,8 +34,8 @@ export const Resource = new Proxy(
                   keys: Array.isArray(k) ? k : [k],
                   account_id: accountId,
                 })
-                .then((result: { values?: Record<string, string> }) =>
-                  isMulti ? new Map(Object.entries(result.values ?? {})) : result.values?.[k],
+                .then((result: { values?: Record<string: string> } | null) =>
+                  isMulti ? new Map(Object.entries(result?.values ?? {})) : result?.values?.[k],
                 )
             },
             put: (k: string, v: string, opts?: KVNamespacePutOptions) =>

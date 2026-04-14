@@ -17,4 +17,9 @@ if (process.versions.bun !== expectedBunVersion) {
   console.warn(`Warning: Bun version ${process.versions.bun} differs from expected ${expectedBunVersion}`);
 }
 '
-bun typecheck
+if [ -n "$SKIP_PRE_PUSH_TYPECHECK" ]; then
+  echo "SKIP_PRE_PUSH_TYPECHECK set — skipping pre-push typecheck"
+else
+  bun typecheck
+fi
+

@@ -34,9 +34,12 @@ export const Resource = new Proxy(
                   keys: Array.isArray(k) ? k : [k],
                   account_id: accountId,
                 })
-                .then((result: { values?: Record<string: string> } | null) =>
-                  isMulti ? new Map(Object.entries(result?.values ?? {})) : result?.values?.[k],
-                )
+                .then((result: any | null) => {
+                  const values: Record<string, unknown> = result?.values ?? {}
+                  if (isMulti) return new Map(Object.entries(values).map(([kk, vv]) => [kk, String(vv)]))
+                  const single = values[k as string]
+                  return typeof single === "undefined" ? undefined : String(single)
+                })
             },
             put: (k: string, v: string, opts?: KVNamespacePutOptions) =>
               client.kv.namespaces.values.update(namespaceId, k, {
